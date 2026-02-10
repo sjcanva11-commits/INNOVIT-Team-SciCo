@@ -1,0 +1,502 @@
+@import url('https://fonts.googleapis.com/css2?family=Kelly+Slab&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kelly+Slab&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    scroll-behavior: smooth;
+}
+
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    background-color: #fff !important;
+}
+
+
+#heading {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+#heading-h2 {
+    width: fit-content;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+
+.section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section::before {
+    content: ' ';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 10%;
+    background: linear-gradient(to top, #f5f5f5 -20%, transparent);
+    z-index: 1;
+
+}
+
+.section1 {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section1::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10%;
+    background: linear-gradient(to bottom, #f5f5f5 -15%, transparent);
+    z-index: 10;
+}
+
+.section1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 10%;
+    background: linear-gradient(to top, #f5f5f5 -15%, transparent);
+    z-index: 10;
+}
+
+#rmynBG {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+}
+
+#rmynFG {
+    position: absolute;
+    border: none;
+    top: 68%;
+    left: 28%;
+    height: 30%;
+}
+
+#bird1 {
+    position: absolute;
+    width: 10vw;
+    height: 20vh;
+    top: 11%;
+    right: 65%;
+    z-index: 1;
+    scale: 1.2;
+    transform: scaleX(-1);
+}
+
+#bird2 {
+    position: absolute;
+    width: 10vw;
+    height: 20vh;
+    top: 16%;
+    right: 27%;
+    z-index: 2;
+    scale: 1.3;
+    transform: scaleX(-1);
+}
+
+#bird3 {
+    position: absolute;
+    width: 10vw;
+    height: 20vh;
+    top: 3%;
+    right: 55%;
+    z-index: 1;
+}
+
+#bird4 {
+    position: absolute;
+    width: 10vw;
+    height: 20vh;
+    top: 8%;
+    right: 38%;
+    z-index: 1;
+}
+
+#bird5 {
+    width: 10%;
+    position: absolute;
+    right: 8%;
+    top: 13%;
+    z-index: 1;
+}
+
+.section2 {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* background-image: url("../assets/HomePage/RamHoverBG.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; */
+
+    /* background-image: linear-gradient(to right bottom, #0a2340, #563568, #a8406e, #e46154, #f3a026); */
+}
+
+.arrowBGNew {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.section2::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10%;
+    background: linear-gradient(to bottom, #f5f5f5 -15%, transparent);
+    z-index: 10;
+}
+
+.section2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 10%;
+    background: linear-gradient(to top, #f5f5f5 -15%, transparent);
+    z-index: 10;
+}
+
+.section3 {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section3::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10%;
+    background: linear-gradient(to bottom, #f5f5f5 -15%, transparent);
+    z-index: 10;
+}
+
+.section3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 10%;
+    background: linear-gradient(to top, #f5f5f5 -15%, transparent);
+    z-index: 10;
+}
+
+#rathBG {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+}
+
+#rathFG {
+    position: absolute;
+    width: 45vw;
+    height: 100vh;
+    right: 0%;
+}
+
+.section4 {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+#arrowBG {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+}
+
+#arrowBorders {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+}
+
+#arrowDots {
+    position: absolute;
+    width: 99vw;
+    height: 100vh;
+    /* animation: blink 0.7s linear infinite alternate; */
+}
+
+#arrowRotate {
+    position: absolute;
+    width: 45%;
+    top: 2.5vh;
+    left: 27.5%;
+    /* animation: rotate 15s linear infinite; */
+}
+
+#arrowFG {
+    position: absolute;
+    width: 30vw;
+    height: 90vh;
+    left: 37%;
+    top: 3%;
+    z-index: 1;
+    /* animation: shoot 5s ease-in-out 1s infinite; */
+}
+
+#krsnaBG {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    /* animation: bgAura 5s linear infinite alternate; */
+}
+
+#krsnaFG {
+    position: absolute;
+    border: none;
+    height: 100vh;
+    width: 100vw;
+    /* animation: fadeIn 10s linear infinite alternate; */
+}
+
+.section img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+.section img#man {
+    transform-origin: bottom;
+}
+
+
+#text {
+    position: absolute;
+    color: #fff;
+    font-size: 9vw;
+    left: 12%;
+    z-index: 0;
+}
+
+
+#text::after {
+    content: "INDIAN HERITAGE";
+    position: absolute;
+    font-size: 9vw;
+    width: 100%;
+    left: 5px;
+    top: -5px;
+    color: rgb(22, 22, 22);
+    filter: blur(5px);
+    z-index: -1;
+}
+
+.sec {
+    position: relative;
+    padding: 100px;
+}
+
+.sec h2 {
+    font-size: 5em;
+    margin-bottom: 10px;
+    color: cornflowerblue;
+}
+
+.sec p {
+    font-size: 2em;
+    color: cornflowerblue;
+}
+
+#man {
+    width: 35%;
+    left: 33%;
+    top: 20px;
+}
+
+#mountain_left {
+    /* top: ;  */
+    width: 50%;
+}
+
+/* #mountain_right {
+    top: ; 
+    /* width: 80%; 
+} */
+
+#text {
+    top: -2px;
+}
+
+#para {
+    text-align: justify;
+}
+
+.arrow {
+    position: absolute;
+    font-size: 2rem;
+    font-weight: bold;
+    bottom: 10px;
+    left: 50%;
+    color: black;
+    z-index: 3 !important;
+}
+
+
+
+svg #wheel {
+    animation: scroll ease 1.5s infinite;
+}
+
+/* @keyframes scroll {
+    0% {
+        transform: translateY(0);
+    }
+    30% {
+        transform: translateY(100px);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes bgAura {
+    from {
+        scale: 1;
+    }
+    to {
+        scale: 1.05;
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes blink {
+    0% {opacity: 0;}
+    50% {opacity: 0.5;}
+    100% {opacity: 1;}
+}
+
+@keyframes shoot {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-18deg);
+    }
+} */
+
+.grid-image-showcase {
+    display: grid; 
+    place-items: center;
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: 1fr; 
+    gap: 20px 20px; 
+    grid-template-areas: 
+      "image content"; 
+
+    transition: all 200ms ease-in-out;
+}
+
+.grid-image-showcase p{
+    font-size: 32px;
+}
+
+.grid-image-showcase .new-p{
+    font-size: 18px !important;
+}
+
+.grid-image-showcase img{
+    /* border-radius: 16px;
+    margin: 5px; */
+    --s: 10px; /* control the size */
+    padding: var(--s);
+    border: calc(2*var(--s)) solid #0000;
+    outline: 1px solid #000;
+    outline-offset: calc(-1*var(--s));
+    background: conic-gradient(from 90deg at 1px 1px,#0000 25%,#000 0);
+    
+    
+}
+
+.para-italic{
+    font-style: italic;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Add smooth transitions */
+.feature-card, button {
+  transition: all 0.3s ease;
+}

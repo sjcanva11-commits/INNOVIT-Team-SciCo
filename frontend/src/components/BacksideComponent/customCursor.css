@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+* {
+  /* cursor: none; */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+.cursor {
+  z-index: 99;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  border: 2px solid black;
+  transition: all 200ms ease-out;
+  position: fixed;
+  pointer-events: none;
+  left: 0;
+  top: 0;
+  transform: translate(calc(-50% + 15px), -50%);
+}
+
+.cursor2 {
+  z-index: 99;
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  background-color: black;
+  opacity: .8;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  transition: width .3s, height .3s, opacity .3s;
+  
+}
+
+.hover {
+  background-color: red;
+  opacity: 0.5;
+}
+
+.cursorinnerhover {
+  width: 25px;
+  height: 25px;
+  opacity: 1;
+}
+
+p:hover .cursor {
+  width: 100px !important;
+}
+
+
+.tw-hover {
+  background-color: blanchedalmond;
+  opacity: 0.7;
+  mix-blend-mode: color-dodge;
+}
+
+.tw-hover-inner {
+  background-color: black;
+  opacity: 0.7;
+  mix-blend-mode: color-dodge;
+}
+
+.pc-hover{
+  background-color: blanchedalmond;
+  opacity: 0.7;
+  width: 100px;
+  height: 100px;
+  mix-blend-mode: color-burn;
+}
+.pc-hover-inner{
+  background-color: black;
+  opacity: 0.7;
+  mix-blend-mode: color-dodge;
+}
+
+.st-tw-hover {
+  background-color: blanchedalmond;
+  opacity: 0.7;
+  mix-blend-mode: difference;
+  width: 50px;
+  height: 50px;
+}
+
+.st-tw-hover-inner {
+  background-color: black;
+  opacity: 0.7;
+  mix-blend-mode: color-dodge;
+}
+
+/* Better Nav */
+.nav-hover {
+  background-color: blanchedalmond;
+  opacity: 0.7;
+  mix-blend-mode: difference;
+  width: 50px;
+  height: 50px;
+}
+
+.nav-hover-inner {
+  background-color: white !important;
+  opacity: 0.7;
+  mix-blend-mode: lighten;
+}

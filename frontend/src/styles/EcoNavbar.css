@@ -1,0 +1,74 @@
+/* EcoNavbar.css */
+.eco-navbar-main {
+  width: 100%;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .eco-navbar {
+    padding: 15px 20px !important;
+  }
+  
+  .eco-nav-list {
+    gap: 5px !important;
+  }
+  
+  .eco-nav-list li a {
+    padding: 10px 15px !important;
+    font-size: 0.9rem !important;
+  }
+  
+  .eco-navbar-main h1 {
+    font-size: 1.6rem !important;
+  }
+  
+  .logo-icon {
+    width: 45px !important;
+    height: 45px !important;
+    font-size: 20px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .eco-nav-list {
+    display: none !important;
+  }
+  
+  .mobile-menu-btn {
+    display: block !important;
+  }
+  
+  .eco-navbar {
+    padding: 15px 20px !important;
+  }
+  
+  .eco-navbar-main h1 {
+    font-size: 1.4rem !important;
+  }
+  
+  .logo-icon {
+    width: 40px !important;
+    height: 40px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .eco-navbar {
+    padding: 10px 15px !important;
+  }
+  
+  .eco-navbar-main h1 {
+    font-size: 1.2rem !important;
+  }
+  
+  .logo-icon {
+    width: 35px !important;
+    height: 35px !important;
+    font-size: 16px !important;
+  }
+}
+
+/* Add font import at the top of your HTML file or in global CSS */
+/* Add this to your index.html head section:
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+*/

@@ -1,0 +1,125 @@
+/* UttarPradesh.css */
+
+/* Traditional Pattern Overlay */
+.up-traditional-pattern {
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(255, 153, 51, 0.05) 0%, transparent 55%),
+    radial-gradient(circle at 75% 75%, rgba(19, 136, 8, 0.05) 0%, transparent 55%),
+    repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255, 215, 0, 0.03) 10px, rgba(255, 215, 0, 0.03) 20px);
+}
+
+/* Card Hover Animations */
+.cultural-card {
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.cultural-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #FF9933, #138808, #FFD700, #800000);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.cultural-card:hover::before {
+  opacity: 1;
+}
+
+/* Traditional Button Styles */
+.up-traditional-btn {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.up-traditional-btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  border-radius: 100%;
+  transform: scale(1, 1) translate(-50%);
+  transform-origin: 50% 50%;
+}
+
+.up-traditional-btn:focus:not(:active)::after {
+  animation: ripple 1s ease-out;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0, 0);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(40, 40);
+    opacity: 0;
+  }
+}
+
+/* Traditional Typography */
+.up-devanagari-text {
+  font-family: 'Noto Serif Devanagari', 'Tiro Devanagari Hindi', serif;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.up-playfair-text {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Pattern Borders */
+.up-pattern-border-top {
+  background: repeating-linear-gradient(45deg, #FF9933, #FF9933 10px, #138808 10px, #138808 20px);
+  height: 10px;
+  width: 100%;
+}
+
+.up-pattern-border-bottom {
+  background: repeating-linear-gradient(45deg, #138808, #138808 10px, #FF9933 10px, #FF9933 20px);
+  height: 10px;
+  width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .up-hero-section h1 {
+    font-size: 3rem !important;
+  }
+  
+  .up-hero-section h2 {
+    font-size: 1.8rem !important;
+  }
+  
+  .cultural-card {
+    margin: 0 10px;
+  }
+  
+  .up-categories-grid {
+    padding: 40px 20px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .up-hero-section {
+    padding: 60px 20px !important;
+  }
+  
+  .up-hero-section h1 {
+    font-size: 2.5rem !important;
+  }
+  
+  .cultural-card {
+    min-width: 280px;
+  }
+}

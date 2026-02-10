@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Inknut+Antiqua&display=swap');
+
+.state-title{
+    font-family: 'Inknut Antiqua', serif;
+    width: fit-content;
+    position: relative;
+    color: #FFF;
+}
+.state-sub-title{
+    font-weight: 900;
+    text-decoration: underline ;
+}
+.state-desc{
+    font-weight: 550;
+    color: #fff !important;
+    mix-blend-mode: hard-light;
+}
+
+.bgImage-container{
+    position: absolute;
+}
+
+.slider {
+    position: relative;
+    width: 100%;
+    height: 70%;
+    overflow: hidden;
+}
+
+.item {
+    position: absolute;
+    width: 40%;
+    height: 80%;
+    text-align: justify;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    transition: 0.5s;
+    left: calc(50% - 110px);
+    top: 15%;
+    border-radius: 45px;
+}
+
+#next,
+#prev {
+    position: absolute;
+    top: 50%;
+    color: #000;
+    background-color: transparent;
+    border: none;
+    font-size: xxx-large;
+    font-family: monospace;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 5;
+}
+
+#next {
+    right: 7vw;
+}
+
+#prev{
+    left: 10dvw;
+}
+
+.swipeLeft{
+    animation-name: swipeLeft;
+    animation-duration: 500ms;
+
+}
+
+@keyframes swipeLeft {
+    0% {
+        transform: translateX(50%)
+    }
+    100% {
+        transform: translateX(0%)
+    }
+}
+
+.swipeRight{
+    animation-name: swipeRight;
+    animation-duration: 500ms;
+
+}
+
+@keyframes swipeRight {
+    0% {
+        transform: translateX(-50%)
+    }
+    100% {
+        transform: translateX(0%)
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    #next {
+        right: 20px;
+    }
+    
+    #prev{
+        left: 20px;
+    }
+}
+
+
+.navv {
+    
+    padding: 10px;
+    top: 115%;
+    right: 6%;
+    position: absolute;
+    box-sizing: border-box;
+    border-radius: 30px;
+    background: #F6E8EA;
+    justify-content: center;
+  
+   
+}
+.navv ::after{
+  content: "";
+  background: rgb(200, 98, 108);
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  border-radius: 32px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: scale(.7,.7);
+  z-index: -1;
+  transition: all 0.3s cubic-bezier(0.850, 0.150, 0.505, 1.030);
+}
+.nav1.vertical ul {
+    flex-direction: column;
+  }
+
+.nav1 ul {
+    display: flex;
+    list-style-type: none;
+    
+  }
+
+.nav1 ul li a{
+    display: inline-block;
+    position: relative;
+    
+    padding: 15px;
+    color: #EF626C;
+    transition: transform 0.3s cubic-bezier(0.925, 0.150, 0.505, 1.030);
+  }
+.nav1 ul li a:hover{
+    transform: scale(1.3);
+  }
+  
+
+.nav1.vertical:hover::after {
+    transform: scale(1.1,1);
+    
+  }

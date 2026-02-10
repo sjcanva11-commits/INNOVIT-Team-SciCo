@@ -1,0 +1,106 @@
+/* StatePage.css */
+
+/* Add fonts to your index.html head:
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+*/
+
+.state-page {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+}
+
+/* Smooth transitions */
+.state-page * {
+  transition: all 0.3s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .state-hero {
+    padding: 80px 20px 60px !important;
+  }
+  
+  .state-hero h1 {
+    font-size: 2.5rem !important;
+  }
+  
+  .state-hero p {
+    font-size: 1.1rem !important;
+    padding: 0 20px !important;
+  }
+  
+  .state-content {
+    padding: 40px 20px !important;
+  }
+  
+  .grid-container {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+  
+  .tab-button {
+    padding: 12px 20px !important;
+    font-size: 1rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .state-hero h1 {
+    font-size: 2rem !important;
+  }
+  
+  .hero-stats {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 20px !important;
+  }
+  
+  .hero-stat-box {
+    min-width: 200px !important;
+  }
+}
+
+/* Loading Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.state-page > * {
+  animation: fadeIn 0.6s ease forwards;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, var(--state-primary, #800000), var(--state-secondary, #FFD700));
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, var(--state-secondary, #FFD700), var(--state-primary, #800000));
+}
+
+/* Print Styles */
+@media print {
+  .state-page {
+    background: white !important;
+    color: black !important;
+  }
+  
+  button, .tab-navigation {
+    display: none !important;
+  }
+}
