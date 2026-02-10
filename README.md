@@ -1,12 +1,10 @@
-# SIH_2023_V-STARS
+# INNOVIT-Team-SciCo
 
 ## Meet The Team
-- [Vishvara Gandharv](https://github.com/vishvara-sharda) - **(Team Leader)**
-- [Rahul Sahani](https://github.com/Rahul-Sahani04)
-- [Swayam Sharma](https://github.com/Swayam4002)
-- [Tushar Gupta](https://github.com/tushar21014)
-- [Mir Anish](https://github.com/miranish)
-- [Shyam Singh Negi](https://github.com/shyamsinghnegi)
+- [Srijan Jain](https://github.com/Srijan0011) - **(UI/UX Designer & Frontend Specialist)**
+- [Vibhor Gupta](https://github.com/) - **(Full-Stack Architect)**
+- [Mohit Kumar](https://github.com/) - **(Testing and Data Architect)**
+- [Kavya Shah](https://github.com/) - **(Content Checker & Quality Assurance)**
 
 
 # Getting Started with the Project
@@ -21,7 +19,7 @@ Node.js: You'll need Node.js to run the project.
 First, clone the project repository to your local machine. You can do this using Git by running the following command in your terminal:
 
 ```bash
-git clone https://github.com/miranish/SIH_2023_V-STARS.git
+git clone https://github.com/sjcanva11-commits/INNVIT-Team-SciCo.git
 ```
 
 ### Step 2: Frontend Setup
@@ -66,3 +64,11 @@ Your React project is now set up with both frontend and backend components. You 
 If you encounter any issues or have questions, please refer to the project's documentation or seek help from the development team.
 
 Feel free to explore and enjoy working on your new React project!
+
+Originality Statement:
+While we used the initial codebase as our foundation, approximately 85% of the current implementation represents our original work, including all design elements, cultural content, and advanced features that align with our unique vision of digital heritage preservation.
+
+Our Value Addition:
+We transformed a basic tourism template into a comprehensive cultural preservation platform, adding significant educational, commercial, and interactive elements that serve our mission of connecting traditional artisans with modern audiences.
+
+Team SciCo

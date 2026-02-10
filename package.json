@@ -5,3 +5,10 @@
     "gsap": "^3.12.2"
   }
 }
+{
+  "homepage": ".",
+  "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "vercel --prod"
+  }
+}
