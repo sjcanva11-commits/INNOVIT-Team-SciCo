@@ -1,4 +1,4 @@
-# INNVIT-Team-SciCo
+# INNOVIT-Team-SciCo
 
 ## Meet The Team
 - [Srijan Jain](https://github.com/Srijan0011) - **(UI/UX Designer & Frontend Specialist)**
