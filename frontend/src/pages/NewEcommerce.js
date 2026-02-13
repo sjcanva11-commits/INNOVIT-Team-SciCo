@@ -264,7 +264,7 @@ export const TradePage = () => {
   const artisans = [
     {
       id: 1,
-      name: "Mohan Das",
+      name: "Monika Das",
       title: "Master Weaver",
       location: "Varanasi, UP",
       craft: "Banarasi Silk",
@@ -343,7 +343,7 @@ export const TradePage = () => {
           marginBottom: "20px",
           textShadow: "2px 2px 4px rgba(0,0,0,0.5)"
         }}>
-          दिजीविरासत - DigiVirasat
+          डिजीविरासत - DigiVirasat
         </h1>
         <h2 style={{
           fontSize: "2rem",

@@ -1,4 +1,4 @@
-.eco-page2{
+/* .eco-page2{
     margin: 0;
     background-color: #FFB3C6;
     background-image: url("../assets/ecom/EcomPage2BG.png");
@@ -17,4 +17,126 @@
     gap: 60px 20px;
     grid-auto-flow: row;
     justify-items: center;
+} */
+
+.eco-page2 {
+  background: linear-gradient(135deg, #fff8e1 0%, #ffecb3 50%, #fff3e0 100%);
+  min-height: 100vh;
+  padding-bottom: 80px;
+}
+
+/* HERO SECTION */
+.eco-page2-hero {
+  text-align: center;
+  padding: 80px 20px 40px;
+}
+
+.eco-page2-hero h1 {
+  font-family: "Noto Serif Devanagari", serif;
+  font-size: 3rem;
+  color: #800000;
+  margin-bottom: 20px;
+}
+
+.eco-page2-hero p {
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: auto;
+  color: #444;
+}
+
+/* CARD GRID */
+.eco-page2-cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 40px;
+  max-width: 1400px;
+  margin: 40px auto;
+  padding: 0 40px;
+}
+
+/* STATE CARD */
+.state-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(128, 0, 0, 0.1);
+  transition: all 0.4s ease;
+}
+
+.state-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 30px 60px rgba(128, 0, 0, 0.2);
+}
+
+/* HEADER */
+.state-card-header {
+  padding: 30px;
+  color: white;
+}
+
+.state-card-header h2 {
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+}
+
+.state-card-header p {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+/* IMAGES */
+.state-images {
+  display: flex;
+  gap: 10px;
+  padding: 20px;
+}
+
+.state-images img {
+  width: 50%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.state-images img:hover {
+  transform: scale(1.05);
+}
+
+/* CONTENT */
+.state-content {
+  padding: 0 25px 30px;
+}
+
+.craft-badge {
+  display: inline-block;
+  color: white;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  margin-bottom: 15px;
+}
+
+.state-description {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+/* BUTTON */
+.explore-btn {
+  border: none;
+  padding: 12px 30px;
+  color: white;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.explore-btn:hover {
+  opacity: 0.85;
+  transform: scale(1.05);
 }

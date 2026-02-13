@@ -310,6 +310,7 @@ const UttarPradeshPage = () => {
           display: "inline-flex",
           alignItems: "center",
           gap: "20px",
+          
           background: "rgba(255, 255, 255, 0.1)",
           padding: "15px 40px",
           borderRadius: "50px",

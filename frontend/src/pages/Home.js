@@ -218,7 +218,7 @@ const Home = () => {
         <section className="section" id="top-section">
           <img src={bg} id="bg" alt="bg" />
           {/* <IndianHeritageText /> */}
-        <div style={{
+        {/* <div style={{
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
@@ -251,7 +251,47 @@ const Home = () => {
           >
             DigiVirasat
           </h2>
-        </div>
+        </div> */}
+        {/* DigiVirasat Hero Text - Premium Dark Theme */}
+<div style={{
+  position: "absolute",
+  top: "17%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  zIndex: 20,
+  width: "100%",
+  textAlign: "center",
+  pointerEvents: "none"
+}}>
+  <h1 
+    style={{
+      fontFamily: "'Playfair Display', 'Times New Roman', serif",
+      fontWeight: "900",
+      fontSize: "clamp(3.5rem, 12vw, 8rem)",
+      letterSpacing: "4px",
+      color: "#FFD700",
+      margin: "0",
+      padding: "0 20px",
+      textShadow: "4px 4px 0 #8B0000, 8px 8px 20px rgba(0,0,0,0.6)",
+      lineHeight: "1.1",
+      textTransform: "uppercase"
+    }}
+  >
+    DigiVirasat
+  </h1>
+  <p style={{
+    fontFamily: "'Playfair Display', serif",
+    fontSize: "clamp(1rem, 4vw, 1.8rem)",
+    color: "#FFFFFF",
+    marginTop: "20px",
+    letterSpacing: "2px",
+    fontWeight: "400",
+    textShadow: "2px 2px 4px rgba(0,0,0,0.5)",
+    fontStyle: "italic"
+  }}>
+    Heritage • Technology • Empowerment
+  </p>
+</div>
           <img src={fg} alt="man2" id="man" />
           <img
             src={clouds_1}
@@ -322,7 +362,8 @@ const Home = () => {
     }}>
       DigiVirasat<br />
       <span style={{ 
-        color: "#FFD700",
+        // color: "hsl(51, 100%, 50%)",
+        color: "hsl(51, 100%, 50%)",
         fontWeight: "600",
         fontSize: "1.4rem",
         display: "block",
