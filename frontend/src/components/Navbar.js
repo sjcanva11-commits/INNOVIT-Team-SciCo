@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "../styles/EcoNavbar.css";
+import LogoImg from "../assets/HomePage/digivirasat.png"; 
+
 
 function EcoNavbar() {
   const [activeLink, setActiveLink] = useState("/");
@@ -39,20 +41,22 @@ function EcoNavbar() {
           cursor: "pointer"
         }}>
           <div style={{
-            width: "55px",
+            width: "70px",
             height: "55px",
             background: "linear-gradient(135deg, #FFD700 0%, #FFA500 100%)",
             borderRadius: "50%",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            fontSize: "26px",
-            fontWeight: "bold",
-            color: "#800000",
             border: "2px solid white",
-            boxShadow: "0 4px 15px rgba(255, 215, 0, 0.4)"
+            boxShadow: "0 4px 15px rgba(255, 215, 0, 0.4)",
+            overflow: "hidden" // ensures image stays inside circle
           }}>
-            दि
+            <img 
+              src={LogoImg} 
+              alt="DigiVirasat Logo" 
+              style={{ width: "80px", height: "90px", objectFit: "contain" }}
+            />
           </div>
           <div>
             <h1 style={{

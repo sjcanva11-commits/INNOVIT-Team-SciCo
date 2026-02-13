@@ -2,6 +2,7 @@ import "./styles.css";
 
 import { BsShop } from "react-icons/bs"
 import {BiSolidUpArrowAlt} from "react-icons/bi"
+import IndiaImg from "../assets/india.png";
 
 import {GiIndiaGate} from "react-icons/gi"
 function Navbarjs() {
@@ -22,8 +23,9 @@ function Navbarjs() {
           <a lass="fa-solid fa-shop" href="/trade"><BsShop /></a>
         </li>
         <li class="menu-item">
-          <a class="flex items-center" href="/india">  </a>
+          <a class="flex items-center" href="/india"> </a>
         </li>
+    
         <li class="menu-item">
           <a class="" href="#top-section"><BiSolidUpArrowAlt /></a>
         </li> 
