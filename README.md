@@ -1,11 +1,22 @@
 # INNOVIT-Team-SciCo
 
-## Meet The Team
-- [Srijan Jain](https://github.com/Srijan0011) - **(UI/UX Designer & Frontend Specialist)**
-- [Vibhor Gupta](https://github.com/) - **(Full-Stack Architect)**
-- [Mohit Kumar](https://github.com/) - **(Testing and Data Architect)**
-- [Kavya Shah](https://github.com/) - **(Content Checker & Quality Assurance)**
 
+## Team Members
+- [Mohit Kumar](https://github.com/mohitkumar9193) – **Team Lead**
+- [Srijan Jain](https://github.com/Srijan0011) – **Frontend & Design**  
+- [Vibhor Gupta](https://github.com/vibhorgupta2288) – **Backend**  
+- [Kavya Shah](https://github.com/kavyashah08) – **Content & Testing**  
+
+## Project Overview
+This is a full-stack cultural heritage platform built to preserve and promote traditional artisans through a modern digital experience.
+We improved an initial template by adding our own design, structured content, and additional full-stack features to support our vision of digital heritage preservation.
+
+
+## Tech Stack
+**Frontend:** React.js, HTML5, CSS3  
+**Backend:** Node.js, Express.js                                                                                            
+**Tools:** Git, GitHub, npm  
+**Deployment:** Netlify
 
 # Getting Started with the Project
 Welcome to your new React project! This readme will guide you through the process of setting up and running your project, which consists of both a frontend and a backend part. Here are the steps to get started:
@@ -19,7 +30,7 @@ Node.js: You'll need Node.js to run the project.
 First, clone the project repository to your local machine. You can do this using Git by running the following command in your terminal:
 
 ```bash
-git clone https://github.com/sjcanva11-commits/INNVIT-Team-SciCo.git
+git clone https://github.com/sjcanva11-commits/INNOVIT-Team-SciCo.git
 ```
 
 ### Step 2: Frontend Setup
