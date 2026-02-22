@@ -1,4 +1,4 @@
-#loading-wrapper {
+/* #loading-wrapper {
     position: fixed;
     width: 100vw;
     height: 100vh;
@@ -137,4 +137,92 @@
     margin: 0 auto;
     text-align: center;
     background-color: #888;
+} */
+ /* src/styles/LoadingPage.css - Exact Sarvam.ai Font */
+
+/* Import the font Sarvam.ai uses - System fonts for exact match */
+.sarvam-loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 1;
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+.sarvam-loading.fade-out {
+  opacity: 0;
+}
+
+.loading-content {
+  text-align: center;
+  transform: translateY(0);
+  animation: slideUpFade 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* EXACT Sarvam.ai font - System font stack */
+.loading-brand {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-size: 3.5rem;
+  font-weight: 500;  /* Medium weight - exactly like Sarvam */
+  color: #000000;
+  margin: 0;
+  line-height: 1.2;
+  letter-spacing: -0.02em;  /* Slight negative tracking */
+  opacity: 0;
+  animation: fadeIn 0.6s ease forwards;
+}
+
+.loading-tagline {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 350;  /* Very light weight */
+  color: #4A4A4A;    /* Soft dark gray - not pure black */
+  margin-top: 12px;
+  letter-spacing: 0.3px;
+  text-transform: none;  /* Sentence case, not uppercase */
+  opacity: 0;
+  animation: fadeIn 0.6s ease 0.15s forwards;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes slideUpFade {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .loading-brand {
+    font-size: 2.5rem;
+  }
+  .loading-tagline {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .loading-brand {
+    font-size: 2rem;
+  }
+  .loading-tagline {
+    font-size: 0.7rem;
+  }
 }

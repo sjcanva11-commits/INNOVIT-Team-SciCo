@@ -1,10 +1,8 @@
-// src/components/LandingPage.js
 import "../styles/Home.css";
 import React, { useState, useEffect } from "react";
 import { gsap } from "gsap";
-
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
+import { useNavigate } from 'react-router-dom';
 
 //images
 import clouds_1 from "../assets/HomePage/clouds_1.png";
@@ -13,22 +11,11 @@ import bg from "../assets/HomePage/full.png";
 import fg from "../assets/HomePage/man2.png";
 import ramayanBG from "../assets/HomePage/ramayanBG.png";
 import ramayanFG from "../assets/HomePage/ramayanFG.png";
-// import krishnaBG from "../assets/HomePage/krishnaBG.png";
-// import krishnaFG from "../assets/HomePage/krishnaFG.png";
-// import arrowBG from "../assets/HomePage/arrowBG.png";
 import arrowFG from "../assets/HomePage/arrowFG.png";
 import arrowBGNew from "../assets/HomePage/RamHoverBG_Large.png";
-
-// import arrowBorders from "../assets/HomePage/arrowBorders.png";
-// import arrowDots from "../assets/HomePage/arrowDots.png";
-// import arrowFull from "../assets/HomePage/arrowFull.png";
 import arrowRotate from "../assets/HomePage/arrowRotate.png";
 import rathBG from "../assets/HomePage/rathBG.png";
 import rathFG from "../assets/HomePage/rathFG.png";
-// Create an array with all the imported images above
-
-// import flybird from "../assets/HomePage/flybird.gif";
-// import birdy from "../assets/HomePage/birdy.gif";
 
 import Navbarjs from "../components/Navbarr";
 import { Footer } from "../components/Footer";
@@ -37,11 +24,11 @@ import { LoadingPage } from "./LoadingPage";
 gsap.registerPlugin(ScrollTrigger);
 
 const Home = () => {
-  function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-  }
-  const [arrowBGNew1, setRathBgSrc] = useState(`${arrowBGNew}`);
+  const [arrowBGNew1, setRathBgSrc] = useState(arrowBGNew);
   const [imagesLoaded, setImagesLoaded] = useState(false);
+  const [showLoading, setShowLoading] = useState(true);
+  const [loadingComplete, setLoadingComplete] = useState(false);
+  const navigate = useNavigate(); //new
 
   const imageUrls = [
     clouds_1,
@@ -57,424 +44,385 @@ const Home = () => {
     rathFG,
   ];
 
+  // Preload images
   useEffect(() => {
-  // ✅ Correct image preload (no relative string path)
-  const RathBGImg = new Image();
-  RathBGImg.src = arrowBGNew; // must be imported image
-  RathBGImg.onload = () => {
-    setRathBgSrc(RathBGImg.src);
-  };
-
-  const images = imageUrls.map((url) => {
-    const img = new Image();
-    img.src = url;
-    img.onload = () => {
-      if (images.every((image) => image.complete)) {
-        setImagesLoaded(true);
-      }
+    const RathBGImg = new Image();
+    RathBGImg.src = arrowBGNew;
+    RathBGImg.onload = () => {
+      setRathBgSrc(RathBGImg.src);
     };
-    return img;
-  });
 
-  // ✅ GSAP SAFE CONTEXT (VERY IMPORTANT FOR PRODUCTION)
-  const ctx = gsap.context(() => {
+    let loadedCount = 0;
+    const totalImages = imageUrls.length;
 
-    gsap.to("#menu", {
-      y: -790,
-      scrollTrigger: {
-        trigger: "#my-footer",
-        start: "top 100%",
-        scrub: true,
-      },
+    imageUrls.forEach((url) => {
+      const img = new Image();
+      img.src = url;
+      img.onload = () => {
+        loadedCount++;
+        if (loadedCount === totalImages) {
+          setImagesLoaded(true);
+        }
+      };
+      img.onerror = () => {
+        loadedCount++;
+        if (loadedCount === totalImages) {
+          setImagesLoaded(true);
+        }
+      };
     });
+  }, []);
 
-    gsap.to("#menu", {
-      x: -500,
-      scrollTrigger: {
-        trigger: ".section3",
-        scrub: true,
-      },
-    });
+  // Once images are loaded, wait a moment then hide loading
+  useEffect(() => {
+    if (imagesLoaded && !loadingComplete) {
+      // Images are loaded, loading will hide after its internal timer
+      // The LoadingPage component calls onLoadingComplete after its animation
+    }
+  }, [imagesLoaded, loadingComplete]);
 
-    gsap.to("#bg", {
-      scale: 1.5,
-      scrollTrigger: {
-        scrub: 1,
-      },
-    });
+  // GSAP animations (your existing code)
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Your existing GSAP animations here...
+      gsap.to("#menu", {
+        y: -790,
+        scrollTrigger: {
+          trigger: "#my-footer",
+          start: "top 100%",
+          scrub: true,
+        },
+      });
 
-    gsap.to("#man", {
-      scale: 0.5,
-      scrollTrigger: {
-        scrub: 1,
-      },
-    });
-
-    gsap.to("#rmynFG", {
-      duration: 10,
-      x: -250,
-      y: -50,
-      scale: 0.7,
-      scrollTrigger: {
-        trigger: "#bird3",
-        scrub: 1,
-      },
-    });
-
-    gsap.to("#cloud1", {
-      x: 750,
-      scrollTrigger: {
-        scrub: 1,
-      },
-    });
-
-    gsap.to("#cloud2", {
-      x: -750,
-      scrollTrigger: {
-        scrub: 1,
-      },
-    });
-
-    // ❌ Removed krishnaBG & krishnaFG animations (they were crashing)
-
-    gsap.to("#text", {
-      y: 800,
-      scrollTrigger: {
-        scrub: 1,
-      },
-    });
-
-    gsap.to("#heading-h2", {
-      x: "100%",
-      scrollTrigger: {
-        trigger: "#heading",
-        scrub: 1,
-      },
-    });
-
-    gsap.to(".arrowBGNew", {
-      scale: 1.2,
-      scrollTrigger: {
-        trigger: ".section2",
-        scrub: 1,
-      },
-    });
-
-    gsap.to(".section2 #arrowRotate", {
-      scale: 1,
-      rotate: 360,
-      duration: 2.5,
-      scrollTrigger: {
-        trigger: ".section2",
-        scrub: true,
-      },
-    });
-
-    gsap.fromTo(
-      "#rathFG",
-      { x: 200 },
-      {
-        x: 0,
-        duration: 3,
+      gsap.to("#menu", {
+        x: -500,
         scrollTrigger: {
           trigger: ".section3",
-          scrub: 2,
+          scrub: true,
         },
-      }
-    );
+      });
 
-    gsap.to(".arrow", {
-      opacity: 0,
-      scrollTrigger: {
-        trigger: ".arrow",
-        start: "top center",
-        end: "50% center",
-        scrub: true,
-      },
+      gsap.to("#bg", {
+        scale: 1.5,
+        scrollTrigger: {
+          scrub: 1,
+        },
+      });
+
+      gsap.to("#man", {
+        scale: 0.5,
+        scrollTrigger: {
+          scrub: 1,
+        },
+      });
+
+      gsap.to("#rmynFG", {
+        duration: 10,
+        x: -250,
+        y: -50,
+        scale: 0.7,
+        scrollTrigger: {
+          trigger: "#bird3",
+          scrub: 1,
+        },
+      });
+
+      gsap.to("#cloud1", {
+        x: 750,
+        scrollTrigger: {
+          scrub: 1,
+        },
+      });
+
+      gsap.to("#cloud2", {
+        x: -750,
+        scrollTrigger: {
+          scrub: 1,
+        },
+      });
+
+      gsap.to("#text", {
+        y: 800,
+        scrollTrigger: {
+          scrub: 1,
+        },
+      });
+
+      gsap.to("#heading-h2", {
+        x: "100%",
+        scrollTrigger: {
+          trigger: "#heading",
+          scrub: 1,
+        },
+      });
+
+      gsap.to(".arrowBGNew", {
+        scale: 1.2,
+        scrollTrigger: {
+          trigger: ".section2",
+          scrub: 1,
+        },
+      });
+
+      gsap.to(".section2 #arrowRotate", {
+        scale: 1,
+        rotate: 360,
+        duration: 2.5,
+        scrollTrigger: {
+          trigger: ".section2",
+          scrub: true,
+        },
+      });
+
+      gsap.fromTo(
+        "#rathFG",
+        { x: 200 },
+        {
+          x: 0,
+          duration: 3,
+          scrollTrigger: {
+            trigger: ".section3",
+            scrub: 2,
+          },
+        }
+      );
+
+      gsap.to(".arrow", {
+        opacity: 0,
+        scrollTrigger: {
+          trigger: ".arrow",
+          start: "top center",
+          end: "50% center",
+          scrub: true,
+        },
+      });
+
+      gsap.to("#bird5", {
+        x: -1400,
+        duration: 10,
+        repeat: -1,
+        repeatDelay: 0.5,
+        scrollTrigger: {
+          trigger: ".section2",
+          start: "top -35%",
+          end: "bottom 100%",
+        },
+      });
     });
 
-    gsap.to("#bird5", {
-      x: -1400,
-      duration: 10,
-      repeat: -1,
-      repeatDelay: 0.5,
-      scrollTrigger: {
-        trigger: ".section2", // fixed from #section2
-        start: "top -35%",
-        end: "bottom 100%",
-      },
-    });
+    return () => ctx.revert();
+  }, []);
 
-  });
+  const handleLoadingComplete = () => {
+    setShowLoading(false);
+    setLoadingComplete(true);
+  };
 
-  return () => ctx.revert();
+  return (
+    <div>
+      {/* Loading Screen - Buttery smooth fade */}
+      {showLoading && (
+        <LoadingPage onLoadingComplete={handleLoadingComplete} />
+      )}
 
-}, []);
-
-    return (
-      <div>
-       {imagesLoaded ? ""  : <LoadingPage percentage={""} /> }
+      {/* Main Content - Hidden until loading is complete */}
+      <div style={{ 
+        opacity: showLoading ? 0 : 1,
+        transition: 'opacity 0.5s ease',
+        visibility: showLoading ? 'hidden' : 'visible'
+      }}>
         <Navbarjs />
+        
+        {/* Section 1: Top Section */}
         <section className="section" id="top-section">
           <img src={bg} id="bg" alt="bg" />
-          {/* <IndianHeritageText /> */}
-        {/* <div style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          width: "100%",
-          position: "absolute",
-          top: "17%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          zIndex: 1
-        }}>
-          <h2 
-            style={{
-              fontFamily: "-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', sans-serif",
-              fontWeight: "800",
-              fontSize: "5.5rem",
-              letterSpacing: "-0.5px",
-              background: "linear-gradient(135deg, #FFFFFF 0%, #E8E8E8 25%, #B0B0B0 50%, #E8E8E8 75%, #FFFFFF 100%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
-              textShadow: "0px 2px 4px rgba(0,0,0,0.3), 0px 4px 20px rgba(255,255,255,0.3)",
-              display: "inline-block",
-              padding: "15px 30px",
-              borderRadius: "20px",
-              backdropFilter: "blur(10px)",
-              border: "1px solid rgba(255,255,255,0.2)",
-              boxShadow: "0 8px 32px rgba(0, 0, 0, 0.2)",
-              textAlign: "center"
-            }}
-          >
-            DigiVirasat
-          </h2>
-        </div> */}
-        {/* DigiVirasat Hero Text - Premium Dark Theme */}
-<div style={{
-  position: "absolute",
-  top: "17%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  zIndex: 20,
-  width: "100%",
-  textAlign: "center",
-  pointerEvents: "none"
-}}>
-  <h1 
-    style={{
-      fontFamily: "'Playfair Display', 'Times New Roman', serif",
-      fontWeight: "900",
-      fontSize: "clamp(3.5rem, 12vw, 8rem)",
-      letterSpacing: "4px",
-      color: "#FFD700",
-      margin: "0",
-      padding: "0 20px",
-      textShadow: "4px 4px 0 #8B0000, 8px 8px 20px rgba(0,0,0,0.6)",
-      lineHeight: "1.1",
-      textTransform: "uppercase"
-    }}
-  >
-    DigiVirasat
-  </h1>
-  <p style={{
-    fontFamily: "'Playfair Display', serif",
-    fontSize: "clamp(1rem, 4vw, 1.8rem)",
-    color: "#FFFFFF",
-    marginTop: "20px",
-    letterSpacing: "2px",
-    fontWeight: "400",
-    textShadow: "2px 2px 4px rgba(0,0,0,0.5)",
-    fontStyle: "italic"
-  }}>
-    Heritage • Technology • Empowerment
-  </p>
-</div>
+          
+          {/* DigiVirasat Hero Text */}
+          <div style={{
+            position: "absolute",
+            top: "17%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            zIndex: 20,
+            width: "100%",
+            textAlign: "center",
+            pointerEvents: "none"
+          }}>
+            <h1 
+              style={{
+                fontFamily: "'Playfair Display', 'Times New Roman', serif",
+                fontWeight: "900",
+                fontSize: "clamp(3.5rem, 12vw, 8rem)",
+                letterSpacing: "4px",
+                color: "#FFD700",
+                margin: "0",
+                padding: "0 20px",
+                textShadow: "4px 4px 0 #8B0000, 8px 8px 20px rgba(0,0,0,0.6)",
+                lineHeight: "1.1",
+                textTransform: "uppercase"
+              }}
+            >
+              DigiVirasat
+            </h1>
+            <p style={{
+              fontFamily: "'Playfair Display', serif",
+              fontSize: "clamp(1rem, 4vw, 1.8rem)",
+              color: "#FFFFFF",
+              marginTop: "20px",
+              letterSpacing: "2px",
+              fontWeight: "400",
+              textShadow: "2px 2px 4px rgba(0,0,0,0.5)",
+              fontStyle: "italic"
+            }}>
+              Heritage • Technology • Empowerment
+            </p>
+          </div>
+          
           <img src={fg} alt="man2" id="man" />
-          <img
-            src={clouds_1}
-            style={{
-              position: "absolute",
-            }}
-            alt="cloud1"
-            id="cloud1"
-          />
-          <img
-            src={clouds_2}
-            style={{
-              position: "absolute",
-            }}
-            alt="cloud2"
-            id="cloud2"
-          />
+          <img src={clouds_1} style={{ position: "absolute" }} alt="cloud1" id="cloud1" />
+          <img src={clouds_2} style={{ position: "absolute" }} alt="cloud2" id="cloud2" />
         </section>
 
+        {/* Section 2: Ramayan Section */}
         <section className="section1">
-  <img src={ramayanBG} id="rmynBG" alt="rmynBG" />
-  
-  {/* Bird images remain as before */}
-  <img
-    src={require("../assets/HomePage/flybird.gif")}
-    id="bird1"
-    alt="bird"
-  />
-  <img
-    src={require("../assets/HomePage/flybird.gif")}
-    id="bird2"
-    alt="bird"
-  />
-  <img
-    src={require("../assets/HomePage/flybird.gif")}
-    id="bird3"
-    alt="bird"
-  />
-  <img
-    src={require("../assets/HomePage/flybird.gif")}
-    id="bird4"
-    alt="bird"
-  />
-  
-  {/* Compact Project Description - Transparent Background */}
-  <div style={{
-    position: "absolute",
-    right: "3%",
-    top: "50%",
-    transform: "translateY(-50%)",
-    width: "35%",
-    maxWidth: "400px",
-    padding: "20px",
-    background: "rgba(10, 10, 10, 0.65)",  // More transparent
-    backdropFilter: "blur(8px)",
-    borderRadius: "15px",
-    border: "1px solid rgba(255, 255, 255, 0.15)",
-    boxShadow: "0 8px 30px rgba(0, 0, 0, 0.25)",
-    zIndex: 10
-  }}>
-    <h3 style={{
-      fontFamily: "-apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif",
-      fontWeight: "700",
-      fontSize: "1.8rem",
-      color: "#FFFFFF",
-      marginBottom: "15px",
-      lineHeight: "1.2"
-    }}>
-      DigiVirasat<br />
-      <span style={{ 
-        // color: "hsl(51, 100%, 50%)",
-        color: "hsl(51, 100%, 50%)",
-        fontWeight: "600",
-        fontSize: "1.4rem",
-        display: "block",
-        marginTop: "5px"
-      }}>
-        Rooted in Culture, Built on Code
-      </span>
-    </h3>
-    
-    <p style={{
-      fontFamily: "-apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif",
-      fontWeight: "400",
-      fontSize: "0.95rem",
-      color: "#F5F5F5",
-      lineHeight: "1.5",
-      marginBottom: "15px",
-      opacity: "0.9"
-    }}>
-      India's intangible cultural heritage is fading due to digital invisibility of artisans and fragmented knowledge.
-    </p>
-    
-    <div style={{
-      padding: "12px",
-      background: "rgba(255, 215, 0, 0.08)",
-      borderRadius: "10px",
-      borderLeft: "3px solid #FFD700",
-      marginBottom: "15px"
-    }}>
-      <p style={{
-        fontFamily: "-apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif",
-        fontWeight: "600",
-        fontSize: "1rem",
-        color: "#FFD700",
-        margin: "0 0 5px 0"
-      }}>
-        Our Mission:
-      </p>
-      <p style={{
-        fontFamily: "-apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif",
-        fontWeight: "400",
-        fontSize: "0.9rem",
-        color: "#FFFFFF",
-        margin: "0",
-        lineHeight: "1.4",
-        opacity: "0.9"
-      }}>
-        Build a tech ecosystem to preserve heritage and empower artisans with direct global connections.
-      </p>
-    </div>
-    
-    <div style={{
-      padding: "12px",
-      background: "rgba(0, 122, 255, 0.08)",
-      borderRadius: "10px",
-      borderLeft: "3px solid #007AFF"
-    }}>
-      <p style={{
-        fontFamily: "-apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif",
-        fontWeight: "600",
-        fontSize: "1rem",
-        color: "#64D2FF",
-        margin: "0 0 5px 0"
-      }}>
-        Solution:
-      </p>
-      <h4 style={{
-        fontFamily: "-apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif",
-        fontWeight: "700",
-        fontSize: "1.1rem",
-        color: "#FFFFFF",
-        margin: "0 0 5px 0"
-      }}>
-        The DigiVirasat Platform
-      </h4>
-      <p style={{
-        fontFamily: "-apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif",
-        fontWeight: "400",
-        fontSize: "0.9rem",
-        color: "#FFFFFF",
-        margin: "0",
-        lineHeight: "1.4",
-        opacity: "0.9"
-      }}>
-        A D2C marketplace and interactive cultural archive.
-      </p>
-    </div>
-  </div>
-</section>
+          <img src={ramayanBG} id="rmynBG" alt="rmynBG" />
+          
+          {/* Bird images */}
+          <img src={require("../assets/HomePage/flybird.gif")} id="bird1" alt="bird" />
+          <img src={require("../assets/HomePage/flybird.gif")} id="bird2" alt="bird" />
+          <img src={require("../assets/HomePage/flybird.gif")} id="bird3" alt="bird" />
+          <img src={require("../assets/HomePage/flybird.gif")} id="bird4" alt="bird" />
+          
+          {/* Project Description */}
+          <div style={{
+            position: "absolute",
+            right: "3%",
+            top: "50%",
+            transform: "translateY(-50%)",
+            width: "35%",
+            maxWidth: "400px",
+            padding: "20px",
+            background: "rgba(10, 10, 10, 0.65)",
+            backdropFilter: "blur(8px)",
+            borderRadius: "15px",
+            border: "1px solid rgba(255, 255, 255, 0.15)",
+            boxShadow: "0 8px 30px rgba(0, 0, 0, 0.25)",
+            zIndex: 10
+          }}>
+            <h3 style={{
+              fontFamily: "-apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif",
+              fontWeight: "700",
+              fontSize: "1.8rem",
+              color: "#FFFFFF",
+              marginBottom: "15px",
+              lineHeight: "1.2"
+            }}>
+              DigiVirasat<br />
+              <span style={{ 
+                color: "hsl(51, 100%, 50%)",
+                fontWeight: "600",
+                fontSize: "1.4rem",
+                display: "block",
+                marginTop: "5px"
+              }}>
+                Rooted in Culture, Built on Code
+              </span>
+            </h3>
+            
+            <p style={{
+              fontFamily: "-apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif",
+              fontWeight: "400",
+              fontSize: "0.95rem",
+              color: "#F5F5F5",
+              lineHeight: "1.5",
+              marginBottom: "15px",
+              opacity: "0.9"
+            }}>
+              India's intangible cultural heritage is fading due to digital invisibility of artisans and fragmented knowledge.
+            </p>
+            
+            <div style={{
+              padding: "12px",
+              background: "rgba(255, 215, 0, 0.08)",
+              borderRadius: "10px",
+              borderLeft: "3px solid #FFD700",
+              marginBottom: "15px"
+            }}>
+              <p style={{
+                fontFamily: "-apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif",
+                fontWeight: "600",
+                fontSize: "1rem",
+                color: "#FFD700",
+                margin: "0 0 5px 0"
+              }}>
+                Our Mission:
+              </p>
+              <p style={{
+                fontFamily: "-apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif",
+                fontWeight: "400",
+                fontSize: "0.9rem",
+                color: "#FFFFFF",
+                margin: "0",
+                lineHeight: "1.4",
+                opacity: "0.9"
+              }}>
+                Build a tech ecosystem to preserve heritage and empower artisans with direct global connections.
+              </p>
+            </div>
+            
+            <div style={{
+              padding: "12px",
+              background: "rgba(0, 122, 255, 0.08)",
+              borderRadius: "10px",
+              borderLeft: "3px solid #007AFF"
+            }}>
+              <p style={{
+                fontFamily: "-apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif",
+                fontWeight: "600",
+                fontSize: "1rem",
+                color: "#64D2FF",
+                margin: "0 0 5px 0"
+              }}>
+                Solution:
+              </p>
+              <h4 style={{
+                fontFamily: "-apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif",
+                fontWeight: "700",
+                fontSize: "1.1rem",
+                color: "#FFFFFF",
+                margin: "0 0 5px 0"
+              }}>
+                The DigiVirasat Platform
+              </h4>
+              <p style={{
+                fontFamily: "-apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif",
+                fontWeight: "400",
+                fontSize: "0.9rem",
+                color: "#FFFFFF",
+                margin: "0",
+                lineHeight: "1.4",
+                opacity: "0.9"
+              }}>
+                A D2C marketplace and interactive cultural archive.
+              </p>
+            </div>
+          </div>
+        </section>
 
+        {/* Section 3: Arrow Section */}
         <section className="section2">
-          <img
-            src={arrowBGNew1}
-            id="arrowBG123"
-            className="arrowBGNew"
-            alt="Arrow BG Sky"
-          />
+          <img src={arrowBGNew1} id="arrowBG123" className="arrowBGNew" alt="Arrow BG Sky" />
           <img src={arrowRotate} id="arrowRotate" alt="arrowRotate" />
           <img src={arrowFG} id="arrowFG" alt="arrowFG" />
         </section>
 
+        {/* Section 4: Rath Section */}
         <section className="section3">
           <img src={rathBG} id="rathBG" alt="rathBG" />
           <img src={rathFG} id="rathFG" alt="rathFG" />
         </section>
 
-        {/* 
-      <setion className="section4">
-        <img src={krishnaBG} id="krsnaBG" alt="krsnaBG" />
-        <img src={krishnaFG} id="krsnaFG" alt="krsnaFG" />
-      </setion> */}
-
+        {/* SVG Arrow */}
         <svg
           className="arrow"
           width="40px"
@@ -506,9 +454,8 @@ const Home = () => {
             }}
           />
         </svg>
-        {/* <p>Scroll down</p> */}
-        {/* ========== DIGIVIRASAT PLATFORM FEATURES ========== */}
-        
+
+        {/* DIGIVIRASAT PLATFORM FEATURES SECTIONS */}
         {/* Section 1: Interactive Digital Archive */}
         <div className="sec" style={{
           background: "linear-gradient(135deg, #0f172a 0%, #1e293b 100%)",
@@ -551,6 +498,7 @@ const Home = () => {
             maxWidth: "1200px",
             margin: "0 auto"
           }}>
+            {/* Feature Card 1 */}
             <div className="feature-card" style={{
               background: "rgba(30, 41, 59, 0.7)",
               padding: "40px 30px",
@@ -602,6 +550,7 @@ const Home = () => {
               </div>
             </div>
 
+            {/* Feature Card 2 */}
             <div className="feature-card" style={{
               background: "rgba(30, 41, 59, 0.7)",
               padding: "40px 30px",
@@ -653,6 +602,7 @@ const Home = () => {
               </div>
             </div>
 
+            {/* Feature Card 3 */}
             <div className="feature-card" style={{
               background: "rgba(30, 41, 59, 0.7)",
               padding: "40px 30px",
@@ -981,7 +931,7 @@ const Home = () => {
           padding: "80px 40px",
           position: "relative"
         }}>
-          <div style={{
+                    <div style={{
             maxWidth: "1200px",
             margin: "0 auto"
           }}>
@@ -1034,21 +984,35 @@ const Home = () => {
                     border: "1px solid rgba(139, 92, 246, 0.4)",
                     borderRadius: "10px",
                     fontSize: "0.9rem"
-                  }}>Django</div>
+                  }}>Express.js</div>
                   <div style={{
                     padding: "10px 20px",
                     background: "rgba(139, 92, 246, 0.2)",
                     border: "1px solid rgba(139, 92, 246, 0.4)",
                     borderRadius: "10px",
                     fontSize: "0.9rem"
-                  }}>PostgreSQL</div>
+                  }}>MongoDB</div>
                   <div style={{
                     padding: "10px 20px",
                     background: "rgba(139, 92, 246, 0.2)",
                     border: "1px solid rgba(139, 92, 246, 0.4)",
                     borderRadius: "10px",
                     fontSize: "0.9rem"
-                  }}>AWS</div>
+                  }}>Firebase</div>
+                  <div style={{
+                    padding: "10px 20px",
+                    background: "rgba(139, 92, 246, 0.2)",
+                    border: "1px solid rgba(139, 92, 246, 0.4)",
+                    borderRadius: "10px",
+                    fontSize: "0.9rem"
+                  }}>Leaflet.js</div>
+                  <div style={{
+                    padding: "10px 20px",
+                    background: "rgba(139, 92, 246, 0.2)",
+                    border: "1px solid rgba(139, 92, 246, 0.4)",
+                    borderRadius: "10px",
+                    fontSize: "0.9rem"
+                  }}>H5P</div>
                 </div>
               </div>
               
@@ -1085,9 +1049,10 @@ const Home = () => {
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
-                      fontSize: "0.8rem"
+                      fontSize: "0.8rem",
+                      color: "white"
                     }}>Q1</div>
-                    <span>Pan-India expansion to all 28 states</span>
+                    <span>Pan-India expansion to all 28 states & 8 UTs</span>
                   </li>
                   <li style={{
                     padding: "15px 0",
@@ -1104,9 +1069,10 @@ const Home = () => {
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
-                      fontSize: "0.8rem"
+                      fontSize: "0.8rem",
+                      color: "white"
                     }}>Q2</div>
-                    <span>Digilocker integration for digital certificates</span>
+                    <span>DigiLocker integration for digital artisan certificates</span>
                   </li>
                   <li style={{
                     padding: "15px 0",
@@ -1122,9 +1088,10 @@ const Home = () => {
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
-                      fontSize: "0.8rem"
+                      fontSize: "0.8rem",
+                      color: "white"
                     }}>Q3</div>
-                    <span>B2B licensing to museums & tourism boards</span>
+                    <span>B2B licensing to museums, schools & tourism boards</span>
                   </li>
                 </ul>
               </div>
@@ -1168,7 +1135,24 @@ const Home = () => {
                 justifyContent: "center",
                 flexWrap: "wrap"
               }}>
-                <button style={{
+                <button 
+  onClick={() => navigate('/login')}
+  style={{
+    padding: "15px 40px",
+    background: "linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%)",
+    border: "none",
+    borderRadius: "50px",
+    color: "white",
+    fontSize: "1.1rem",
+    fontWeight: "600",
+    cursor: "pointer",
+    transition: "transform 0.3s ease",
+    boxShadow: "0 10px 25px -5px rgba(139, 92, 246, 0.4)"
+  }}
+>
+  Explore Marketplace
+</button>
+                {/* <button style={{
                   padding: "15px 40px",
                   background: "linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%)",
                   border: "none",
@@ -1177,10 +1161,19 @@ const Home = () => {
                   fontSize: "1.1rem",
                   fontWeight: "600",
                   cursor: "pointer",
-                  transition: "transform 0.3s ease"
+                  transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                  boxShadow: "0 10px 25px -5px rgba(139, 92, 246, 0.4)"
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.transform = "translateY(-2px)";
+                  e.target.style.boxShadow = "0 15px 30px -5px rgba(139, 92, 246, 0.6)";
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.transform = "translateY(0)";
+                  e.target.style.boxShadow = "0 10px 25px -5px rgba(139, 92, 246, 0.4)";
                 }}>
                   Explore Marketplace
-                </button>
+                </button> */}
                 <button style={{
                   padding: "15px 40px",
                   background: "transparent",
@@ -1191,6 +1184,18 @@ const Home = () => {
                   fontWeight: "600",
                   cursor: "pointer",
                   transition: "all 0.3s ease"
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.background = "#8b5cf6";
+                  e.target.style.color = "white";
+                  e.target.style.transform = "translateY(-2px)";
+                  e.target.style.boxShadow = "0 10px 25px -5px rgba(139, 92, 246, 0.4)";
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.background = "transparent";
+                  e.target.style.color = "#8b5cf6";
+                  e.target.style.transform = "translateY(0)";
+                  e.target.style.boxShadow = "none";
                 }}>
                   View Cultural Archive
                 </button>
@@ -1201,7 +1206,8 @@ const Home = () => {
 
         <Footer />
       </div>
-    );
+    </div>
+  );
 };
 
 export default Home;
