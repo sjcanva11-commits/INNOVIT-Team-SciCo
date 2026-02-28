@@ -163,3 +163,36 @@
     box-shadow: 6px 6px 27px -8px rgba(0, 0, 0, 0.61);
 
 }
+
+/* new additions */
+/* Tooltip styling - only this, nothing else */
+/* .menu-item {
+  position: relative;
+} */
+
+.menu-item .tooltip {
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  background: linear-gradient(135deg, #800000 0%, #4a0000 100%);
+  color: #FFD700;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s;
+  margin-left: 10px;
+  border: 1px solid #FFD700;
+  z-index: 10000;
+  pointer-events: none;
+}
+
+.menu-item:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+

@@ -11,7 +11,7 @@ function EcoNavbar() {
     { name: "Home", path: "/", icon: "🏠" },
     { name: "Marketplace", path: "/trade/more", icon: "🛍️" },
     { name: "Explore India", path: "/india", icon: "🗺️" },
-    { name: "Artisans", path: "/hottest", icon: "👨‍🎨" },
+    { name: "Artisans", path: "/artisans", icon: "👨‍🎨" },
     { name: "About Us", path: "#my-footer", icon: "📜" },
   ];
 
@@ -158,7 +158,7 @@ function EcoNavbar() {
             </li>
           ))}
 
-          {/* Cart Button */}
+          {/* Cart Button
           <li style={{ marginLeft: "20px" }}>
             <button style={{
               display: "flex",
@@ -194,7 +194,7 @@ function EcoNavbar() {
                 fontWeight: "bold"
               }}>3</span>
             </button>
-          </li>
+          </li> */}
         </ul>
 
         {/* Mobile Menu Button (Hidden on desktop) */}

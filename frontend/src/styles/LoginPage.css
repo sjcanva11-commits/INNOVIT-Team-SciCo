@@ -1,5 +1,4 @@
 /* src/styles/LoginPage.css */
-
 * {
   margin: 0;
   padding: 0;
@@ -65,7 +64,112 @@
   font-weight: 400;
 }
 
-/* Google Buttons - All identical */
+/* Form Styles - New additions for email/password */
+.login-form {
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 6px;
+  letter-spacing: 0.3px;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 40px;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  background: white;
+  color: #333;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #999;
+  box-shadow: 0 0 0 2px rgba(0,0,0,0.05);
+}
+
+.form-group input.error,
+.form-group select.error {
+  border-color: #ff6b6b;
+}
+
+.error-message {
+  display: block;
+  margin-top: 6px;
+  margin-left: 16px;
+  font-size: 0.75rem;
+  color: #ff6b6b;
+}
+
+.server-error {
+  background-color: #fff3f3;
+  color: #ff4444;
+  padding: 12px 16px;
+  border-radius: 40px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 0.9rem;
+  border: 1px solid #ffcdcd;
+}
+
+/* Login Button - Matching your button style */
+.login-submit-btn {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #000;
+  border-radius: 40px;
+  background: #000;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin: 8px 0 12px 0;
+}
+
+.login-submit-btn:hover:not(:disabled) {
+  background: #333;
+  border-color: #333;
+}
+
+.login-submit-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Sign up link */
+.signup-link {
+  text-align: center;
+  margin: 16px 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.signup-link a {
+  color: #000;
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px dotted #ccc;
+}
+
+.signup-link a:hover {
+  border-bottom-color: #000;
+}
+
+/* Google Buttons - Your original design */
 .google-btn {
   width: 100%;
   padding: 12px 16px;
@@ -120,7 +224,7 @@
   z-index: -1;
 }
 
-/* Microsoft Button */
+/* Microsoft Button - Your original design */
 .microsoft-btn {
   width: 100%;
   padding: 12px 16px;
@@ -146,6 +250,68 @@
 .microsoft-icon {
   width: 20px;
   height: 20px;
+}
+
+/* Username login toggle button */
+.username-login-toggle {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #000;
+  border-radius: 40px;
+  background: transparent;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #000;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin: 8px 0;
+}
+
+.username-login-toggle:hover {
+  background: #000;
+  color: white;
+}
+
+/* Username login form */
+.username-login-form {
+  margin-top: 20px;
+}
+
+.username-login-form h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #000;
+}
+
+.form-note {
+  font-size: 0.8rem;
+  color: #666;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.back-btn {
+  flex: 1;
+  padding: 12px 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 40px;
+  background: white;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.back-btn:hover {
+  background-color: #f8f8f8;
 }
 
 /* Terms */
@@ -180,5 +346,9 @@
   
   .login-form-side {
     padding: 32px 20px;
+  }
+  
+  .form-actions {
+    flex-direction: column;
   }
 }

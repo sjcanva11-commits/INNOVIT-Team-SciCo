@@ -444,7 +444,7 @@ const StatePage = () => {
             ))}
           </div>
 
-          {/* Image Gallery */}
+          {/* Image Gallery
           <div style={{
             marginTop: "60px",
             padding: "40px",
@@ -496,7 +496,7 @@ const StatePage = () => {
                 </div>
               ))}
             </div>
-          </div>
+          </div> */}
 
           {/* Call to Action */}
           <div style={{
