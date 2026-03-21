@@ -3,7 +3,7 @@
 
 ## Team Members
 - [Mohit Kumar](https://github.com/mohitkumar9193) – **Team Lead**
-- [Srijan Jain](https://github.com/Srijan0011) – **Frontend & Design**  
+- [Srijan Jain](https://github.com/srijan-jain11) – **Frontend & Design**  
 - [Vibhor Gupta](https://github.com/vibhorgupta2288) – **Backend**  
 - [Kavya Shah](https://github.com/kavyashah08) – **Content & Testing**  
 
@@ -76,10 +76,21 @@ If you encounter any issues or have questions, please refer to the project's doc
 
 Feel free to explore and enjoy working on your new React project!
 
-Originality Statement:
+## Originality Statement:
 While we used the initial codebase as our foundation, approximately 85% of the current implementation represents our original work, including all design elements, cultural content, and advanced features that align with our unique vision of digital heritage preservation.
 
-Our Value Addition:
+## AI Tools Usage & Code Comments Statement:
+In the interest of efficient development and adhering to the hackathon's timeline and constraints, we utilized AI-assisted tools to accelerate coding, debugging, and documentation processes. However, the core idea, design approach, content structure, and overall vision of the project are entirely original and conceived by Team SciCo. The AI tools served as productivity enhancers, not creative replacements.
+
+**Note on Commented Code:** The codebase contains intentionally preserved commented sections and code snippets. These serve as:
+- Reference points for different implementation scenarios
+- Alternative approaches for future enhancements
+- Helpful guidance for developers extending the project
+- Documentation of our development journey
+
+These comments reflect our iterative development process and provide flexibility for customization without losing context.
+
+## Our Value Addition:
 We transformed a basic tourism template into a comprehensive cultural preservation platform, adding significant educational, commercial, and interactive elements that serve our mission of connecting traditional artisans with modern audiences.
 
 Team SciCo
