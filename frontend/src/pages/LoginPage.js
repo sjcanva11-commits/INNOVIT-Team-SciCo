@@ -160,7 +160,69 @@ const LoginPage = () => {
               Don't have an account? <Link to="/signup">Sign up here</Link>
             </p>
           </form>
-
+              {/* // Add this after the form, before the terms */}
+<div 
+  className="demo-credentials"
+  style={{
+    marginTop: '24px',
+    padding: '20px',
+    background: 'linear-gradient(to right, #f8f9fa, #e9ecef)',
+    borderRadius: '16px',
+    textAlign: 'center',
+    border: '1px solid #dee2e6',
+    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.05)'
+  }}
+>
+  <p style={{
+    fontSize: '14px',
+    color: '#495057',
+    marginBottom: '12px',
+    fontWeight: '600',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: '8px'
+  }}>
+    <span style={{ fontSize: '16px' }}>📋</span>
+    Demo Credentials
+    <span style={{ fontSize: '16px' }}>🔐</span>
+  </p>
+  <div style={{
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+    gap: '12px',
+    fontSize: '12px',
+    fontFamily: 'monospace'
+  }}>
+    <div style={{
+      background: '#fff',
+      padding: '10px',
+      borderRadius: '8px',
+      borderLeft: '3px solid #4CAF50',
+      color: '#2c3e50'
+    }}>
+      <strong style={{ color: '#4CAF50' }}>🛍️ Buyer:</strong> buyer@digivirasat.com / buyer123
+    </div>
+    <div style={{
+      background: '#fff',
+      padding: '10px',
+      borderRadius: '8px',
+      borderLeft: '3px solid #FF9800',
+      color: '#2c3e50'
+    }}>
+      <strong style={{ color: '#FF9800' }}>🎨 Artisan:</strong> artisan@digivirasat.com / artisan123
+    </div>
+    <div style={{
+      background: '#fff',
+      padding: '10px',
+      borderRadius: '8px',
+      borderLeft: '3px solid #2196F3',
+      color: '#2c3e50'
+    }}>
+      <strong style={{ color: '#2196F3' }}>🌱 NGO:</strong> ngo@digivirasat.com / ngo123
+    </div>
+  </div>
+</div>
           <p className="terms">
             By continuing, you agree to DigiVirasat's{' '}
             <a href="/terms">Terms of Service</a> and{' '}
